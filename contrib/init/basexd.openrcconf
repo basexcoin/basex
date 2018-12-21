@@ -1,0 +1,26 @@
+# /etc/conf.d/basexd: config file for /etc/init.d/basexd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/basex/basex.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/basexd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/basexd.pid"
+
+# Where to write basexd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/basexd"
+
+# User and group to own basexd process
+#BITCOIND_USER="basex"
+#BITCOIND_GROUP="basex"
+
+# Path to basexd executable
+#BITCOIND_BIN="/usr/bin/basexd"
+
+# Nice value to run basexd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

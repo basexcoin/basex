@@ -1,0 +1,26 @@
+[Unit]
+Description=Basex's distributed currency daemon
+After=network.target
+
+[Service]
+User=basex
+Group=basex
+
+Type=forking
+PIDFile=/var/lib/basexd/basexd.pid
+
+ExecStart=/usr/bin/basexd -daemon -pid=/var/lib/basexd/basexd.pid \
+          -conf=/etc/basex/basex.conf -datadir=/var/lib/basexd
+
+ExecStop=-/usr/bin/basex-cli -conf=/etc/basex/basex.conf \
+         -datadir=/var/lib/basexd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
